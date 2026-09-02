@@ -315,6 +315,10 @@ h1 {
   border: 0;
 }
 
+/* ================================
+   スマホ表示
+   1曲を「曲名 + 情報」の2行で表示
+================================ */
 @media (max-width: 700px) {
   .page {
     width: min(100% - 20px, 1040px);
@@ -323,6 +327,14 @@ h1 {
 
   .header {
     margin-bottom: 22px;
+  }
+
+  h1 {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .summary {
+    font-size: 14px;
   }
 
   .control-row {
@@ -350,16 +362,105 @@ h1 {
     font-size: 12px;
   }
 
+  /* 横スクロールをやめる */
   .album-table-wrap {
-    overflow-x: auto;
+    overflow-x: visible;
   }
 
   .song-table {
-    min-width: 610px;
+    min-width: 0;
+    table-layout: auto;
   }
 
-  .song-table th,
+  /* スマホでは見出し行を非表示 */
+  .song-table thead,
+  .song-table colgroup {
+    display: none;
+  }
+
+  .song-table,
+  .song-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  /* 1曲 = 2行構成
+     1行目: 曲名
+     2行目: 状態 / 投稿日 / YouTube
+  */
+  .song-table tr {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "title title title"
+      "status date video";
+    column-gap: 12px;
+    row-gap: 5px;
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--soft-line);
+  }
+
+  .song-table tr:last-child {
+    border-bottom: 0;
+  }
+
   .song-table td {
-    padding: 10px 12px;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .song-title {
+    grid-area: title;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .song-table td:nth-child(2) {
+    grid-area: status;
+  }
+
+  .song-table td:nth-child(3) {
+    grid-area: date;
+    justify-self: start;
+  }
+
+  .song-table td:nth-child(4) {
+    grid-area: video;
+    justify-self: end;
+  }
+
+  .status,
+  .date,
+  .youtube-link,
+  .no-link,
+  .no-date {
+    font-size: 13px;
+  }
+
+  /* 投稿済みはドットではなくチェック */
+  .status-posted::before {
+    content: "✓";
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* 未投稿はマークなし */
+  .status-unposted::before {
+    display: none;
+  }
+
+  .status {
+    gap: 5px;
+  }
+
+  .footer {
+    padding-top: 20px;
   }
 }
