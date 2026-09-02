@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="全曲弾いてみた投稿一覧" />
+  <title>全曲弾いてみた一覧</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div>
+        <p class="eyebrow">KT_Gt / GUITAR COVER LIST</p>
+        <h1>おいしくるメロンパン<br>全曲弾いてみた一覧</h1>
+        <p id="summary" class="summary"></p>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="一覧の操作">
+      <div class="filter-tabs" role="group" aria-label="投稿状態で絞り込み">
+        <button class="filter-button is-active" data-filter="all">すべて</button>
+        <button class="filter-button" data-filter="posted">投稿済み</button>
+        <button class="filter-button" data-filter="unposted">未投稿</button>
+      </div>
+
+      <div class="control-row">
+        <label class="search-box">
+          <span class="sr-only">曲名検索</span>
+          <input id="searchInput" type="search" placeholder="曲名を検索" />
+        </label>
+
+        <label class="sort-box">
+          <span>並べ替え</span>
+          <select id="sortSelect">
+            <option value="album">アルバム順</option>
+            <option value="title">曲名順</option>
+            <option value="date-desc">投稿日が新しい順</option>
+            <option value="date-asc">投稿日が古い順</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section id="songList" class="song-list" aria-live="polite"></section>
+
+    <footer class="footer">
+      <p>最終更新：<span id="lastUpdated"></span></p>
+    </footer>
+  </main>
+
+  <script src="songs.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
