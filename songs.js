@@ -292,7 +292,7 @@ const songs = [
     album: "hameln",
     title: "水葬",
     date: "2026-09-03",
-    youtube: ""
+    youtube: "https://www.youtube.com/watch?v=omSYZ0pPoKY"
   },
   {
     album: "hameln",
