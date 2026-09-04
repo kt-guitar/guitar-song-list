@@ -729,13 +729,11 @@ PCでは5列。
       14px;
   }
 
-  .difficulty-note {
-    font-size:
-      11px;
-
-    line-height:
-      1.5;
-  }
+.difficulty-note {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+}
 
 
   /* 検索・並べ替え */
