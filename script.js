@@ -124,7 +124,7 @@ function renderSummary() {
     note.className = "difficulty-note";
 
     note.textContent =
-      "※難しさ目安はKT_Gtの主観によるものです。★が多いほど難しい目安です。";
+      "※難しさ目安は、KT_Gtが実際に弾いた際の感覚をもとにしたあくまで主観的な目安です。★が多いほど難しいと感じた曲です。";
 
     summary.insertAdjacentElement("afterend", note);
   }
