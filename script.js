@@ -8,6 +8,16 @@ const lastUpdated = document.getElementById("lastUpdated");
 let currentFilter = "all";
 const collapsedAlbums = new Set();
 
+sortSelect.innerHTML = `
+  <option value="album">アルバム順</option>
+  <option value="title">曲名順</option>
+  <option value="difficulty-asc">難しさ：易しい順</option>
+  <option value="difficulty-desc">難しさ：難しい順</option>
+  <option value="date-desc">投稿日：新しい順</option>
+  <option value="date-asc">投稿日：古い順</option>
+`;
+sortSelect.value = "album";
+
 function isPosted(song) {
   return Boolean(song.date);
 }
@@ -19,26 +29,32 @@ function formatDate(dateString) {
 
 function difficultyStars(value) {
   if (!value) return "—";
-
   return "★".repeat(value) + "☆".repeat(5 - value);
 }
 
 function albumIndex(album) {
   const index = albumOrder.indexOf(album);
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
+}
 
-  return index === -1
-    ? Number.MAX_SAFE_INTEGER
-    : index;
+function originalIndex(song) {
+  return songs.indexOf(song);
 }
 
 function normalize(text) {
   return String(text).toLocaleLowerCase("ja");
 }
 
+function compareByOriginalOrder(a, b) {
+  const albumCompare = albumIndex(a.album) - albumIndex(b.album);
+  if (albumCompare !== 0) return albumCompare;
+  return originalIndex(a) - originalIndex(b);
+}
+
 function getVisibleSongs() {
   const keyword = normalize(searchInput.value.trim());
 
-  let result = songs.filter((song) => {
+  const result = songs.filter((song) => {
     const posted = isPosted(song);
 
     const matchesFilter =
@@ -57,41 +73,52 @@ function getVisibleSongs() {
   const sortType = sortSelect.value;
 
   result.sort((a, b) => {
-
-    if (sortType === "title") {
-      return a.title.localeCompare(b.title, "ja");
+    if (sortType === "album") {
+      return compareByOriginalOrder(a, b);
     }
 
-    if (
-      sortType === "date-desc" ||
-      sortType === "date-asc"
-    ) {
-      const aDate =
-        a.date ? new Date(a.date).getTime() : null;
+    if (sortType === "title") {
+      const titleCompare = a.title.localeCompare(b.title, "ja");
+      return titleCompare !== 0 ? titleCompare : compareByOriginalOrder(a, b);
+    }
 
-      const bDate =
-        b.date ? new Date(b.date).getTime() : null;
+    if (sortType === "difficulty-asc" || sortType === "difficulty-desc") {
+      const aDifficulty = typeof a.difficulty === "number" ? a.difficulty : null;
+      const bDifficulty = typeof b.difficulty === "number" ? b.difficulty : null;
 
-      if (aDate === null && bDate === null) {
-        return a.title.localeCompare(b.title, "ja");
+      if (aDifficulty === null && bDifficulty === null) {
+        return compareByOriginalOrder(a, b);
+      }
+      if (aDifficulty === null) return 1;
+      if (bDifficulty === null) return -1;
+
+      if (aDifficulty !== bDifficulty) {
+        return sortType === "difficulty-asc"
+          ? aDifficulty - bDifficulty
+          : bDifficulty - aDifficulty;
       }
 
+      return compareByOriginalOrder(a, b);
+    }
+
+    if (sortType === "date-desc" || sortType === "date-asc") {
+      const aDate = a.date ? new Date(a.date).getTime() : null;
+      const bDate = b.date ? new Date(b.date).getTime() : null;
+
+      if (aDate === null && bDate === null) {
+        return compareByOriginalOrder(a, b);
+      }
       if (aDate === null) return 1;
       if (bDate === null) return -1;
 
-      return sortType === "date-desc"
-        ? bDate - aDate
-        : aDate - bDate;
+      if (aDate !== bDate) {
+        return sortType === "date-desc" ? bDate - aDate : aDate - bDate;
+      }
+
+      return compareByOriginalOrder(a, b);
     }
 
-    const albumCompare =
-      albumIndex(a.album) - albumIndex(b.album);
-
-    if (albumCompare !== 0) {
-      return albumCompare;
-    }
-
-    return songs.indexOf(a) - songs.indexOf(b);
+    return compareByOriginalOrder(a, b);
   });
 
   return result;
@@ -104,7 +131,6 @@ function groupSongsByAlbum(visibleSongs) {
     if (!groups.has(song.album)) {
       groups.set(song.album, []);
     }
-
     groups.get(song.album).push(song);
   });
 
@@ -113,193 +139,115 @@ function groupSongsByAlbum(visibleSongs) {
 
 function renderSummary() {
   const postedCount = songs.filter(isPosted).length;
+  summary.textContent = `全${songs.length}曲中 ${postedCount}曲投稿済み`;
 
-  summary.textContent =
-    `全${songs.length}曲中 ${postedCount}曲投稿済み`;
-
-  // 難しさ目安の補足
   if (!document.querySelector(".difficulty-note")) {
     const note = document.createElement("p");
-
     note.className = "difficulty-note";
-
     note.textContent =
-      "※難しさ目安は、KT_Gtが実際に弾いた際の感覚をもとにしたあくまで主観的な目安になります。★が多いほど難しいと感じた曲です。";
-
+      "※難しさ目安は、KT_Gtが実際に弾いた際の感覚をもとにした主観的な目安です。★が多いほど難しいと感じた曲です。";
     summary.insertAdjacentElement("afterend", note);
   }
 }
 
-function createSongRow(song) {
+function createStatusHtml(song) {
+  const posted = isPosted(song);
+  return `
+    <span class="status ${posted ? "status-posted" : "status-unposted"}">
+      ${posted ? "投稿済み" : "未投稿"}
+    </span>
+  `;
+}
+
+function createDateHtml(song) {
+  return song.date
+    ? escapeHtml(formatDate(song.date))
+    : '<span class="no-date">—</span>';
+}
+
+function createDifficultyHtml(song) {
+  return song.difficulty
+    ? `<span class="difficulty-stars">${difficultyStars(song.difficulty)}</span>`
+    : '<span class="no-difficulty">—</span>';
+}
+
+function createYoutubeHtml(song) {
+  return song.youtube
+    ? `<a class="youtube-link" href="${escapeAttribute(song.youtube)}" target="_blank" rel="noopener noreferrer">YouTube</a>`
+    : '<span class="no-link">—</span>';
+}
+
+function createAlbumSongRow(song) {
   const tr = document.createElement("tr");
 
-  const posted = isPosted(song);
-
   tr.innerHTML = `
-    <td class="song-title">
-      ${escapeHtml(song.title)}
-    </td>
-
-    <td>
-      <span class="status ${
-        posted
-          ? "status-posted"
-          : "status-unposted"
-      }">
-        ${
-          posted
-            ? "投稿済み"
-            : "未投稿"
-        }
-      </span>
-    </td>
-
-    <td class="date">
-      ${
-        song.date
-          ? escapeHtml(formatDate(song.date))
-          : '<span class="no-date">—</span>'
-      }
-    </td>
-
-    <td
-      class="difficulty"
-      aria-label="${
-        song.difficulty
-          ? `難しさ目安 ${song.difficulty}/5`
-          : "難しさ目安 未設定"
-      }"
-    >
-      ${
-        song.difficulty
-          ? `<span class="difficulty-stars">
-              ${difficultyStars(song.difficulty)}
-            </span>`
-          : '<span class="no-difficulty">—</span>'
-      }
-    </td>
-
-    <td>
-      ${
-        song.youtube
-          ? `
-            <a
-              class="youtube-link"
-              href="${escapeAttribute(song.youtube)}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              YouTube
-            </a>
-          `
-          : '<span class="no-link">—</span>'
-      }
-    </td>
+    <td class="song-title">${escapeHtml(song.title)}</td>
+    <td class="status-cell">${createStatusHtml(song)}</td>
+    <td class="date">${createDateHtml(song)}</td>
+    <td class="difficulty">${createDifficultyHtml(song)}</td>
+    <td class="video-cell">${createYoutubeHtml(song)}</td>
   `;
 
   return tr;
 }
 
-function createAlbumSection(
-  album,
-  albumSongs
-) {
+function createFlatSongRow(song) {
+  const tr = document.createElement("tr");
 
-  const allAlbumSongs =
-    songs.filter(
-      (song) => song.album === album
-    );
+  tr.innerHTML = `
+    <td class="song-title">${escapeHtml(song.title)}</td>
+    <td class="album-cell">${escapeHtml(song.album)}</td>
+    <td class="status-cell">${createStatusHtml(song)}</td>
+    <td class="date">${createDateHtml(song)}</td>
+    <td class="difficulty">${createDifficultyHtml(song)}</td>
+    <td class="video-cell">${createYoutubeHtml(song)}</td>
+  `;
 
-  const postedCount =
-    allAlbumSongs.filter(isPosted).length;
+  return tr;
+}
 
-  const totalCount =
-    allAlbumSongs.length;
+function createAlbumSection(album, albumSongs) {
+  const allAlbumSongs = songs.filter((song) => song.album === album);
+  const postedCount = allAlbumSongs.filter(isPosted).length;
+  const totalCount = allAlbumSongs.length;
 
-  const section =
-    document.createElement("section");
-
+  const section = document.createElement("section");
   section.className = "album";
 
-  if (
-    collapsedAlbums.has(album)
-  ) {
-    section.classList.add(
-      "is-collapsed"
-    );
+  if (collapsedAlbums.has(album)) {
+    section.classList.add("is-collapsed");
   }
 
-  const headerButton =
-    document.createElement("button");
-
-  headerButton.className =
-    "album-header";
-
+  const headerButton = document.createElement("button");
+  headerButton.className = "album-header";
   headerButton.type = "button";
-
-  headerButton.setAttribute(
-    "aria-expanded",
-    String(
-      !collapsedAlbums.has(album)
-    )
-  );
+  headerButton.setAttribute("aria-expanded", String(!collapsedAlbums.has(album)));
 
   headerButton.innerHTML = `
     <span class="album-title-wrap">
-
-      <span
-        class="chevron"
-        aria-hidden="true"
-      ></span>
-
-      <span class="album-name">
-        ${escapeHtml(album)}
-      </span>
-
+      <span class="chevron" aria-hidden="true"></span>
+      <span class="album-name">${escapeHtml(album)}</span>
     </span>
-
-    <span class="album-count">
-      ${postedCount} / ${totalCount}曲
-    </span>
+    <span class="album-count">${postedCount} / ${totalCount}曲</span>
   `;
 
-  headerButton.addEventListener(
-    "click",
-    () => {
-
-      if (
-        collapsedAlbums.has(album)
-      ) {
-        collapsedAlbums.delete(album);
-      } else {
-        collapsedAlbums.add(album);
-      }
-
-      render();
+  headerButton.addEventListener("click", () => {
+    if (collapsedAlbums.has(album)) {
+      collapsedAlbums.delete(album);
+    } else {
+      collapsedAlbums.add(album);
     }
-  );
+    render();
+  });
 
-  const tableWrap =
-    document.createElement("div");
+  const tableWrap = document.createElement("div");
+  tableWrap.className = "album-table-wrap";
 
-  tableWrap.className =
-    "album-table-wrap";
-
-  const table =
-    document.createElement("table");
-
-  table.className =
-    "song-table";
+  const table = document.createElement("table");
+  table.className = "song-table album-song-table";
 
   table.innerHTML = `
-    <colgroup>
-      <col>
-      <col>
-      <col>
-      <col>
-      <col>
-    </colgroup>
-
+    <colgroup><col><col><col><col><col></colgroup>
     <thead>
       <tr>
         <th>曲名</th>
@@ -309,145 +257,118 @@ function createAlbumSection(
         <th>動画</th>
       </tr>
     </thead>
-
     <tbody></tbody>
   `;
 
-  const tbody =
-    table.querySelector("tbody");
-
-  albumSongs.forEach(
-    (song) => {
-      tbody.appendChild(
-        createSongRow(song)
-      );
-    }
-  );
+  const tbody = table.querySelector("tbody");
+  albumSongs.forEach((song) => tbody.appendChild(createAlbumSongRow(song)));
 
   tableWrap.appendChild(table);
-
-  section.append(
-    headerButton,
-    tableWrap
-  );
+  section.append(headerButton, tableWrap);
 
   return section;
 }
 
+function createFlatList(visibleSongs) {
+  const section = document.createElement("section");
+  section.className = "flat-list";
+
+  const tableWrap = document.createElement("div");
+  tableWrap.className = "flat-table-wrap";
+
+  const table = document.createElement("table");
+  table.className = "song-table flat-song-table";
+
+  table.innerHTML = `
+    <colgroup><col><col><col><col><col><col></colgroup>
+    <thead>
+      <tr>
+        <th>曲名</th>
+        <th>アルバム</th>
+        <th>状態</th>
+        <th>投稿日</th>
+        <th>難しさ目安</th>
+        <th>動画</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  `;
+
+  const tbody = table.querySelector("tbody");
+  visibleSongs.forEach((song) => tbody.appendChild(createFlatSongRow(song)));
+
+  tableWrap.appendChild(table);
+  section.appendChild(tableWrap);
+
+  return section;
+}
+
+function renderAlbumMode(visibleSongs) {
+  const groups = groupSongsByAlbum(visibleSongs);
+  const groupEntries = [...groups.entries()];
+
+  groupEntries.sort((a, b) => albumIndex(a[0]) - albumIndex(b[0]));
+
+  groupEntries.forEach(([album, albumSongs]) => {
+    songList.appendChild(createAlbumSection(album, albumSongs));
+  });
+}
+
+function renderFlatMode(visibleSongs) {
+  songList.appendChild(createFlatList(visibleSongs));
+}
+
 function render() {
-
-  const visibleSongs =
-    getVisibleSongs();
-
+  const visibleSongs = getVisibleSongs();
   songList.innerHTML = "";
 
-  if (
-    visibleSongs.length === 0
-  ) {
-    songList.innerHTML = `
-      <div class="empty-state">
-        該当する曲がありません。
-      </div>
-    `;
-
+  if (visibleSongs.length === 0) {
+    songList.innerHTML = `<div class="empty-state">該当する曲がありません。</div>`;
     return;
   }
 
-  const groups =
-    groupSongsByAlbum(
-      visibleSongs
-    );
-
-  const groupEntries =
-    [...groups.entries()];
-
-  if (
-    sortSelect.value === "album"
-  ) {
-    groupEntries.sort(
-      (a, b) =>
-        albumIndex(a[0]) -
-        albumIndex(b[0])
-    );
+  if (sortSelect.value === "album") {
+    renderAlbumMode(visibleSongs);
+  } else {
+    renderFlatMode(visibleSongs);
   }
-
-  groupEntries.forEach(
-    ([album, albumSongs]) => {
-
-      songList.appendChild(
-        createAlbumSection(
-          album,
-          albumSongs
-        )
-      );
-    }
-  );
 }
 
 function escapeHtml(value) {
-
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("'", "&#039;");
 }
 
 function escapeAttribute(value) {
   return escapeHtml(value);
 }
 
-filterButtons.forEach(
-  (button) => {
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentFilter = button.dataset.filter;
 
-    button.addEventListener(
-      "click",
-      () => {
+    filterButtons.forEach((item) => {
+      item.classList.toggle("is-active", item === button);
+    });
 
-        currentFilter =
-          button.dataset.filter;
+    render();
+  });
+});
 
-        filterButtons.forEach(
-          (item) => {
-
-            item.classList.toggle(
-              "is-active",
-              item === button
-            );
-          }
-        );
-
-        render();
-      }
-    );
-  }
-);
-
-searchInput.addEventListener(
-  "input",
-  render
-);
-
-sortSelect.addEventListener(
-  "change",
-  render
-);
+searchInput.addEventListener("input", render);
+sortSelect.addEventListener("change", render);
 
 renderSummary();
 render();
 
 const today = new Date();
 
-lastUpdated.textContent =
-  today.toLocaleDateString(
-    "ja-JP",
-    {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit"
-    }
-  );
+lastUpdated.textContent = today.toLocaleDateString("ja-JP", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+});
