@@ -119,9 +119,9 @@ const songs = [
   {
     album: "antique",
     title: "渦巻く夏のフェルマータ",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-06",
+    youtube: "https://www.youtube.com/watch?v=vhNeBmwa2zA",
+    difficulty: 4
   },
   {
     album: "phenomenon",
