@@ -203,9 +203,9 @@ const songs = [
   {
     album: "answer",
     title: "夜顔",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-10",
+    youtube: "https://www.youtube.com/watch?v=w-kPsoRgdUk",
+    difficulty: 2
   },
   {
     album: "answer",
