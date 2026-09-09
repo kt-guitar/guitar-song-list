@@ -365,10 +365,12 @@ sortSelect.addEventListener("change", render);
 renderSummary();
 render();
 
-const today = new Date();
+const latestPostDate = songs
+  .filter(song => song.date)
+  .map(song => song.date)
+  .sort()
+  .reverse()[0];
 
-lastUpdated.textContent = today.toLocaleDateString("ja-JP", {
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit"
-});
+lastUpdated.textContent = latestPostDate
+  ? formatDate(latestPostDate)
+  : "—";
