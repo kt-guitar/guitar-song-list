@@ -204,7 +204,7 @@ const songs = [
     album: "answer",
     title: "夜顔",
     date: "2026-09-10",
-    youtube: "https://www.youtube.com/watch?v=w-kPsoRgdUk",
+    youtube: "https://www.youtube.com/watch?v=HPTyF93GFTk",
     difficulty: 2
   },
   {
