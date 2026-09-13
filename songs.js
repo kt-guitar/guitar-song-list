@@ -364,9 +364,9 @@ const songs = [
   {
     album: "hameln",
     title: "nazca",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-14",
+    youtube: "https://www.youtube.com/watch?v=c0-LrM7_yf4",
+    difficulty: 4
   },
   {
     album: "indoor",
