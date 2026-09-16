@@ -93,7 +93,7 @@ const songs = [
     title: "旧世界より",
     date: "2026-01-28",
     youtube: "https://www.youtube.com/watch?v=0Z4agSCK8u8",
-    difficulty: 4
+    difficulty: 3
   },
   {
     album: "antique",
@@ -317,7 +317,7 @@ const songs = [
     title: "水仙",
     date: "2026-01-22",
     youtube: "https://www.youtube.com/watch?v=IYQGsC5YjRg",
-    difficulty: 3
+    difficulty: 2
   },
   {
     album: "flask",
