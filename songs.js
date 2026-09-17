@@ -399,9 +399,9 @@ const songs = [
   {
     album: "indoor",
     title: "あの秋とスクールデイズ",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-18",
+    youtube: "https://www.youtube.com/watch?v=Slq7ayjO4xA",
+    difficulty: 4
   },
   {
     album: "thirsty",
