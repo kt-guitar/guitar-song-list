@@ -340,10 +340,14 @@ h1 {
 }
 
 .footer {
-  padding-top: 24px;
+  margin: 4px 0 12px;
   color: var(--muted);
   font-size: 12px;
   text-align: right;
+}
+
+.footer p {
+  margin: 0;
 }
 
 .sr-only {
@@ -581,7 +585,4 @@ h1 {
     justify-self: end;
   }
 
-  .footer {
-    padding-top: 20px;
-  }
-}
+
