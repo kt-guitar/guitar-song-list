@@ -112,9 +112,9 @@ const songs = [
   {
     album: "antique",
     title: "額縁の中に",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-22",
+    youtube: "https://www.youtube.com/watch?v=MHWdm27ssJM",
+    difficulty: 5
   },
   {
     album: "antique",
