@@ -111,7 +111,7 @@ const songs = [
   },
   {
     album: "antique",
-    title: "額縁の中に",
+    title: "額縁の中で",
     date: "2026-09-22",
     youtube: "https://www.youtube.com/watch?v=MHWdm27ssJM",
     difficulty: 5
