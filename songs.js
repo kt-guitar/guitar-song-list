@@ -217,9 +217,9 @@ const songs = [
   {
     album: "answer",
     title: "波打ち際のマーチ",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-09-28",
+    youtube: "https://youtu.be/DpNL8IFKXko",
+    difficulty: 1
   },
   {
     album: "answer",
