@@ -385,9 +385,9 @@ const songs = [
   {
     album: "indoor",
     title: "caramel city",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-10-01",
+    youtube: "https://www.youtube.com/watch?v=ZGZFHVN7ZLo",
+    difficulty: 3
   },
   {
     album: "indoor",
