@@ -182,9 +182,9 @@ const songs = [
   {
     album: "eyes",
     title: "ドクダミ",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-10-07",
+    youtube: "https://www.youtube.com/watch?v=MTnLWpRPdyo",
+    difficulty: 3
   },
   {
     album: "eyes",
