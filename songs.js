@@ -161,9 +161,9 @@ const songs = [
   {
     album: "eyes",
     title: "五つ目の季節",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-10-12",
+    youtube: "https://www.youtube.com/watch?v=K-BtTfZWeeY",
+    difficulty: 3
   },
   {
     album: "eyes",
