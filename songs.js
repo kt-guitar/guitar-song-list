@@ -140,8 +140,8 @@ const songs = [
   {
     album: "phenomenon",
     title: "式日",
-    date: "https://youtu.be/aFyHcsMljd8",
-    youtube: "2026-10-19",
+    date: "2026-10-19",
+    youtube: "https://youtu.be/aFyHcsMljd8",
     difficulty: 4
   },
   {
