@@ -427,9 +427,9 @@ const songs = [
   {
     album: "thirsty",
     title: "砂と少女",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-10-25",
+    youtube: "https://youtu.be/LpCXZhbcP3s",
+    difficulty: 4
   },
   {
     album: "thirsty",
