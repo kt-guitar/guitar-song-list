@@ -196,9 +196,9 @@ const songs = [
   {
     album: "answer",
     title: "ベルベット",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-11-02",
+    youtube: "https://youtu.be/R8E-5itjLuw",
+    difficulty: 3
   },
   {
     album: "answer",
