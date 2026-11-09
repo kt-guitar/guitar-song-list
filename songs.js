@@ -350,9 +350,9 @@ const songs = [
   {
     album: "hameln",
     title: "dry flower",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-11-09",
+    youtube: "https://youtu.be/OT-SPrrOGEU",
+    difficulty: 3
   },
   {
     album: "hameln",
