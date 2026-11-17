@@ -308,9 +308,9 @@ const songs = [
   {
     album: "flask",
     title: "憧景",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-11-17",
+    youtube:"https://youtu.be/QKu2GVa0QJ0?si=rMXGRDxEJLtyAF8f",
+    difficulty: 5
   },
   {
     album: "flask",
