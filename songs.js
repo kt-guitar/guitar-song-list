@@ -378,9 +378,9 @@ const songs = [
   {
     album: "indoor",
     title: "look at the sea",
-    date: "",
-    youtube: "",
-    difficulty: null
+    date: "2026-11-26",
+    youtube: "https://www.youtube.com/watch?v=T8_ZeT74FSg",
+    difficulty: 2
   },
   {
     album: "indoor",
