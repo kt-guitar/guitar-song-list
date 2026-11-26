@@ -25,7 +25,7 @@ const songs = [
     date: "2026-04-15",
     youtube: "https://www.youtube.com/watch?v=GR2tezOeiwY",
     difficulty: 3,
-    comment: "テンポが速くてコードチェンジ忙しめ！"
+    comment: "テンポが速くてコードチェンジが忙しめです、ソロも左手が忙しくかなり難しめ…"
   },
   {
     album: "avenue",
@@ -65,7 +65,7 @@ const songs = [
     date: "2026-03-11",
     youtube: "https://www.youtube.com/watch?v=44ljogsijNE",
     difficulty: 4,
-    comment: "アルペジオ、クリーンのチョーキング等細かいテクニック多め…"
+    comment: "アルペジオやクリーンのチョーキング等細かいテクニック多め…"
   },
   {
     album: "bouquet",
@@ -225,7 +225,7 @@ const songs = [
     date: "2026-11-02",
     youtube: "https://youtu.be/R8E-5itjLuw",
     difficulty: 3,
-    comment: ""
+    comment: "ギターソロはチョーキングやらスライドやらハンマリング・プリングやらテクニック総動員です"
   },
   {
     album: "answer",
@@ -233,7 +233,7 @@ const songs = [
     date: "2026-09-10",
     youtube: "https://www.youtube.com/watch?v=HPTyF93GFTk",
     difficulty: 2,
-    comment: ""
+    comment: "間奏～Cメロのアルペジオというかコードが癖アリでそこがかなり鬼門かと思います"
   },
   {
     album: "answer",
@@ -241,7 +241,7 @@ const songs = [
     date: "2026-05-04",
     youtube: "https://www.youtube.com/watch?v=_8VYWRCBtSQ",
     difficulty: 3,
-    comment: ""
+    comment: "Cメロのコード進行ガチ大好きすぎる…"
   },
   {
     album: "answer",
@@ -249,7 +249,7 @@ const songs = [
     date: "2026-09-28",
     youtube: "https://youtu.be/DpNL8IFKXko",
     difficulty: 1,
-    comment: ""
+    comment: "テンポもゆっくりめでコードも比較的簡単なのでかなり初心者向けです！"
   },
   {
     album: "answer",
@@ -257,7 +257,7 @@ const songs = [
     date: "2026-05-13",
     youtube: "https://www.youtube.com/watch?v=uJhrnVip3II",
     difficulty: 4,
-    comment: ""
+    comment: "リフはハンマリング/プリングが多いので余計な弦を鳴らさないように気を付けましょう"
   },
   {
     album: "cubism",
@@ -265,7 +265,7 @@ const songs = [
     date: "2026-07-11",
     youtube: "https://www.youtube.com/watch?v=bhonsLJ7ui0",
     difficulty: 4,
-    comment: ""
+    comment: "サビのコード進行が相当覚えづらくて予想以上にかなり苦戦しました…"
   },
   {
     album: "cubism",
@@ -273,7 +273,7 @@ const songs = [
     date: "2026-04-07",
     youtube: "https://www.youtube.com/watch?v=APNrK97vq00",
     difficulty: 2,
-    comment: ""
+    comment: "初心者を脱したらまずこの曲を弾いてほしいぐらい美しいアルペジオやコードがいっぱい詰まってます"
   },
   {
     album: "cubism",
@@ -281,7 +281,7 @@ const songs = [
     date: "2026-04-05",
     youtube: "https://www.youtube.com/watch?v=4d-Nb068xMc",
     difficulty: 4,
-    comment: ""
+    comment: "指弾きって音の強弱を均一にするのが難しい…指弾きに慣れてる人ならそこまで難しくないかも？"
   },
   {
     album: "cubism",
@@ -289,7 +289,7 @@ const songs = [
     date: "2026-04-22",
     youtube: "https://www.youtube.com/watch?v=iRqxn6LMqFA",
     difficulty: 4,
-    comment: ""
+    comment: "1番Aメロ以降約3分半、一瞬も休ませてくれない鬼のような曲…1ミリも気が抜けない…"
   },
   {
     album: "cubism",
@@ -297,7 +297,7 @@ const songs = [
     date: "2026-07-26",
     youtube: "https://www.youtube.com/watch?v=ySDAzcD49As",
     difficulty: 2,
-    comment: ""
+    comment: "間奏の単音以外はだいぶ易しめです！★1寄り"
   },
   {
     album: "theory",
@@ -305,7 +305,7 @@ const songs = [
     date: "2026-04-19",
     youtube: "https://www.youtube.com/watch?v=qjt6VEpo0QU",
     difficulty: 4,
-    comment: ""
+    comment: "拍子がめまぐるしく変わるのでだいぶ神経を使います、1番Aメロのアルペジオを綺麗に鳴らすのに苦戦しました"
   },
   {
     album: "theory",
@@ -313,7 +313,7 @@ const songs = [
     date: "2026-06-23",
     youtube: "https://www.youtube.com/watch?v=bOPeQm0K_bc",
     difficulty: 5,
-    comment: ""
+    comment: "頭1~2つ抜けた難しさで体感は★6ぐらい、ソロ～Cメロ辺りが難しすぎるしこのフレーズ歌いながら弾いてるのはまじでどういうこと…？"
   },
   {
     album: "theory",
@@ -321,7 +321,7 @@ const songs = [
     date: "2026-05-26",
     youtube: "https://www.youtube.com/watch?v=IMzvTHIh-qI",
     difficulty: 3,
-    comment: ""
+    comment: "サビのコード進行が美しすぎる…イントロとアウトロは指で弾いてもピックで弾いてもどちらも違った良さがあります"
   },
   {
     album: "theory",
@@ -329,7 +329,7 @@ const songs = [
     date: "2026-06-05",
     youtube: "https://www.youtube.com/watch?v=Gex5EQYDJjE",
     difficulty: 5,
-    comment: ""
+    comment: "Bメロのアルペジオがだいぶおかしい難易度してるのと、押さえづらいコードがたくさん出てくるので堂々の★5…"
   },
   {
     album: "theory",
@@ -337,7 +337,7 @@ const songs = [
     date: "2026-07-15",
     youtube: "https://www.youtube.com/watch?v=oQn1I72SULc",
     difficulty: 2,
-    comment: ""
+    comment: "だいぶ珍しくシンプルなメジャーコードがたくさん出てきます"
   },
   {
     album: "flask",
@@ -345,7 +345,7 @@ const songs = [
     date: "2026-06-11",
     youtube: "https://www.youtube.com/watch?v=c-1McT9TNoc",
     difficulty: 2,
-    comment: ""
+    comment: "弦飛びアルペジオの練習にもってこいの曲、ソロはフィーリングで！"
   },
   {
     album: "flask",
@@ -353,7 +353,7 @@ const songs = [
     date: "2026-11-17",
     youtube:"https://youtu.be/QKu2GVa0QJ0?si=rMXGRDxEJLtyAF8f",
     difficulty: 5,
-    comment: ""
+    comment: "耳コピもムズいし覚えるのも超大変でした…特にBメロ後半辺りの左手が忙しすぎて苦戦…"
   },
   {
     album: "flask",
@@ -361,7 +361,7 @@ const songs = [
     date: "2026-01-22",
     youtube: "https://www.youtube.com/watch?v=IYQGsC5YjRg",
     difficulty: 2,
-    comment: ""
+    comment: "ギターソロがカッコいいので是非トライしてみて欲しい曲です"
   },
   {
     album: "flask",
@@ -369,7 +369,7 @@ const songs = [
     date: "2026-07-29",
     youtube: "https://www.youtube.com/watch?v=gPRsfgXr31k",
     difficulty: 5,
-    comment: ""
+    comment: "最初から最後までずっと難しくてボスラッシュのような曲…透明造花と並ぶ最難関曲です"
   },
   {
     album: "flask",
@@ -377,7 +377,7 @@ const songs = [
     date: "2026-05-09",
     youtube: "https://www.youtube.com/watch?v=U-oQmbp-Lpg",
     difficulty: 3,
-    comment: ""
+    comment: "コードはそこまで難しくないのですが弦飛びが多いので非常に丁寧なピッキングが求められます"
   },
   {
     album: "hameln",
@@ -385,7 +385,7 @@ const songs = [
     date: "2026-09-03",
     youtube: "https://www.youtube.com/watch?v=omSYZ0pPoKY",
     difficulty: 2,
-    comment: ""
+    comment: "おいしくるらしいコードが多いですが押さえるのはそこまで難しくないので比較的弾きやすいかと思います"
   },
   {
     album: "hameln",
@@ -393,7 +393,7 @@ const songs = [
     date: "2026-01-06",
     youtube: "https://www.youtube.com/watch?v=7fDH3lIZrlk",
     difficulty: 4,
-    comment: ""
+    comment: "2番サビ後のアルペジオのコード（ひし形のアレ）が押さえるの難しくて追いつかない…"
   },
   {
     album: "hameln",
@@ -401,7 +401,7 @@ const songs = [
     date: "2026-11-09",
     youtube: "https://youtu.be/OT-SPrrOGEU",
     difficulty: 3,
-    comment: ""
+    comment: "イントロのコードのリフだけでもう大優勝ソングです、開放弦の使い方が芸術的すぎてすごい…"
   },
   {
     album: "hameln",
@@ -409,7 +409,7 @@ const songs = [
     date: "2026-03-29",
     youtube: "https://www.youtube.com/watch?v=YRuLF5N4Zxo",
     difficulty: 3,
-    comment: ""
+    comment: "コンプレッサーをごりごりにかけて指弾きの音量差を誤魔化したりしています…練習しましょう…（自戒）"
   },
   {
     album: "hameln",
@@ -417,7 +417,7 @@ const songs = [
     date: "2026-09-14",
     youtube: "https://www.youtube.com/watch?v=c0-LrM7_yf4",
     difficulty: 4,
-    comment: ""
+    comment: "5拍子かと思ったら急に6拍子になったりして油断ならない…アウトロとソロの部分で結構苦戦した記憶があります"
   },
   {
     album: "indoor",
@@ -425,7 +425,7 @@ const songs = [
     date: "2026-04-26",
     youtube: "https://www.youtube.com/watch?v=fuOftP2mKOQ",
     difficulty: 3,
-    comment: ""
+    comment: "耳コピガチ苦戦しました…ベースソロ辺りはかなり速いテンポでコードチェンジがあるのでだいぶ忙しめです"
   },
   {
     album: "indoor",
@@ -433,7 +433,7 @@ const songs = [
     date: "2026-11-26",
     youtube: "https://www.youtube.com/watch?v=T8_ZeT74FSg",
     difficulty: 2,
-    comment: ""
+    comment: "初心者向けの曲と思われがちですがイントロのリフを正確に弾こうと思うと右手が結構難しいと思います、弾けない場合は簡略化しても◎"
   },
   {
     album: "indoor",
@@ -441,7 +441,7 @@ const songs = [
     date: "2026-10-01",
     youtube: "https://www.youtube.com/watch?v=ZGZFHVN7ZLo",
     difficulty: 3,
-    comment: ""
+    comment: "ソロがクリーン1本でなかなか硬派というかミスがかなり目立つので練習のしがいがあります"
   },
   {
     album: "indoor",
@@ -449,7 +449,7 @@ const songs = [
     date: "2026-06-17",
     youtube: "https://www.youtube.com/watch?v=coVf4lUlyg0",
     difficulty: 3,
-    comment: ""
+    comment: "脳汁ギターソロすぎるのでライブで上手く弾けたらギターヒーロー間違いなしです"
   },
   {
     album: "indoor",
@@ -457,7 +457,7 @@ const songs = [
     date: "2026-09-18",
     youtube: "https://www.youtube.com/watch?v=Slq7ayjO4xA",
     difficulty: 4,
-    comment: ""
+    comment: "普通にイントロ&アウトロが速すぎて激ムズ…かなり★5寄りの4だと思ってます"
   },
   {
     album: "thirsty",
@@ -473,7 +473,7 @@ const songs = [
     date: "2026-08-10",
     youtube: "https://www.youtube.com/watch?v=RrVwKVsZQFg",
     difficulty: 3,
-    comment: ""
+    comment: "速いけどコード自体はそこまで複雑ではないかも？イントロのリフは小指を使う練習になると思います"
   },
   {
     album: "thirsty",
@@ -481,15 +481,15 @@ const songs = [
     date: "2026-05-01",
     youtube: "https://www.youtube.com/watch?v=Oq86Mle6ySw",
     difficulty: 2,
-    comment: ""
+    comment: "★2ですがギターソロは割と弾き応えのある難易度化と思います、ライブでやるときは2周ぐらいソロ回ししてしまいましょう"
   },
   {
     album: "thirsty",
     title: "砂と少女",
     date: "2026-10-26",
     youtube: "https://youtu.be/LpCXZhbcP3s",
-    difficulty: 4,
-    comment: ""
+    difficulty: 3,
+    comment: "カッティングやスタッカート等、左手のミュート力が求められる曲です"
   },
   {
     album: "thirsty",
@@ -497,7 +497,7 @@ const songs = [
     date: "2026-06-01",
     youtube: "https://www.youtube.com/watch?v=sr7vjCSVeO0",
     difficulty: 4,
-    comment: ""
+    comment: "コードがめちゃめちゃ複雑すぎて最も耳コピの手応えが無い…耳コピ自信ニキさんたちどうか訂正して…"
   },
   {
     album: "その他",
