@@ -25,7 +25,7 @@ const songs = [
     date: "2026-04-15",
     youtube: "https://www.youtube.com/watch?v=GR2tezOeiwY",
     difficulty: 3,
-    comment: ""
+    comment: "テンポが速くてコードチェンジ忙しめ！"
   },
   {
     album: "avenue",
@@ -33,7 +33,7 @@ const songs = [
     date: "2026-08-26",
     youtube: "https://www.youtube.com/watch?v=gwusl_fBndI",
     difficulty: 3,
-    comment: ""
+    comment: "ガチおしゃれすぎコード、アウトロがやや難？"
   },
   {
     album: "avenue",
@@ -41,7 +41,7 @@ const songs = [
     date: "2026-08-26",
     youtube: "https://www.youtube.com/watch?v=ISxALVBSAr8",
     difficulty: 5,
-    comment: ""
+    comment: "指弾きﾑｽﾞ～！ライブ見たらサビの運指・ポジションが全く違いました…"
   },
   {
     album: "avenue",
@@ -49,7 +49,7 @@ const songs = [
     date: "2026-08-26",
     youtube: "https://www.youtube.com/watch?v=FLx1YBrcLC4",
     difficulty: 2,
-    comment: ""
+    comment: "ラスサビ前の間奏が壮大すぎて思わず涙…"
   },
   {
     album: "avenue",
@@ -57,7 +57,7 @@ const songs = [
     date: "2026-07-20",
     youtube: "https://www.youtube.com/watch?v=zC35hDZK-88",
     difficulty: 2,
-    comment: ""
+    comment: "アウトロ以外はだいぶ易しめで初心者おすすめ！★1寄り"
   },
   {
     album: "bouquet",
@@ -65,7 +65,7 @@ const songs = [
     date: "2026-03-11",
     youtube: "https://www.youtube.com/watch?v=44ljogsijNE",
     difficulty: 4,
-    comment: ""
+    comment: "アルペジオ、クリーンのチョーキング等細かいテクニック多め…"
   },
   {
     album: "bouquet",
@@ -73,7 +73,7 @@ const songs = [
     date: "2026-02-13",
     youtube: "https://www.youtube.com/watch?v=3vm-GjK99pg",
     difficulty: 4,
-    comment: ""
+    comment: "この曲だけ明確に違う音作りにしてます、いっぱい歪ませた方が気持ち良いので…"
   },
   {
     album: "bouquet",
@@ -81,7 +81,7 @@ const songs = [
     date: "2026-02-19",
     youtube: "https://www.youtube.com/watch?v=VSIe1v0pWEI",
     difficulty: 2,
-    comment: ""
+    comment: "冒頭のひし形みたいな形のコードさえ弾ければあとは易しめ！★1寄り"
   },
   {
     album: "bouquet",
@@ -89,7 +89,7 @@ const songs = [
     date: "2026-03-03",
     youtube: "https://www.youtube.com/watch?v=qgfZMBEfn8E",
     difficulty: 2,
-    comment: ""
+    comment: "かなり繰り返しが多いので慣れればだいぶ易しめ"
   },
   {
     album: "bouquet",
@@ -97,7 +97,7 @@ const songs = [
     date: "2026-03-23",
     youtube: "https://www.youtube.com/watch?v=Y-4xcDwgnBc",
     difficulty: 4,
-    comment: ""
+    comment: "簡単そうに見えてかなりムズい、間奏のカッティングはミュートが大事！"
   },
   {
     album: "antique",
@@ -105,7 +105,7 @@ const songs = [
     date: "2026-01-28",
     youtube: "https://www.youtube.com/watch?v=0Z4agSCK8u8",
     difficulty: 3,
-    comment: ""
+    comment: "激エモギターソロ大好きすぎる…"
   },
   {
     album: "antique",
@@ -113,7 +113,7 @@ const songs = [
     date: "2026-04-12",
     youtube: "https://www.youtube.com/watch?v=XejFky8t7mQ",
     difficulty: 2,
-    comment: ""
+    comment: "速いけどコード自体はだいぶ易しめ！"
   },
   {
     album: "antique",
@@ -121,7 +121,7 @@ const songs = [
     date: "2026-03-30",
     youtube: "https://www.youtube.com/watch?v=2Gy_mAhFDac",
     difficulty: 3,
-    comment: ""
+    comment: "間奏等のカントリー風ギターは想像よりも意外と簡単なので慣れ、大事◎"
   },
   {
     album: "antique",
@@ -129,7 +129,7 @@ const songs = [
     date: "2026-09-22",
     youtube: "https://www.youtube.com/watch?v=MHWdm27ssJM",
     difficulty: 5,
-    comment: ""
+    comment: "イントロ等のリフがコードと単音が混ざって相当難関…"
   },
   {
     album: "antique",
@@ -137,7 +137,7 @@ const songs = [
     date: "2026-09-06",
     youtube: "https://www.youtube.com/watch?v=vhNeBmwa2zA",
     difficulty: 4,
-    comment: ""
+    comment: "開放弦が混ざるアルペジオで頭が混乱しそうになります…"
   },
   {
     album: "phenomenon",
@@ -145,7 +145,7 @@ const songs = [
     date: "2026-08-30",
     youtube: "https://www.youtube.com/watch?v=eRneTzQPobk",
     difficulty: 3,
-    comment: ""
+    comment: "速さが最大の障壁、コード自体はそこまで難しくはないはず…！"
   },
   {
     album: "phenomenon",
@@ -153,7 +153,7 @@ const songs = [
     date: "2025-12-13",
     youtube: "https://www.youtube.com/watch?v=g9X_vm8XRHk",
     difficulty: 4,
-    comment: ""
+    comment: "Bメロはどうやったら弾きながら歌えるんですか？？"
   },
   {
     album: "phenomenon",
@@ -161,7 +161,7 @@ const songs = [
     date: "2026-10-19",
     youtube: "https://youtu.be/aFyHcsMljd8",
     difficulty: 4,
-    comment: ""
+    comment: "丁寧さが相当求められる指弾き、アンプの音量カチ上げて良いので相当優しく弾いてあげましょう"
   },
   {
     album: "phenomenon",
@@ -169,7 +169,7 @@ const songs = [
     date: "2026-05-23",
     youtube: "https://www.youtube.com/watch?v=1QbgZj2FsY8",
     difficulty: 5,
-    comment: ""
+    comment: "耳コピ苦労した部門堂々の1位、イントロだけで大量のドーパミンが分泌されます"
   },
   {
     album: "phenomenon",
@@ -177,7 +177,7 @@ const songs = [
     date: "2026-05-18",
     youtube: "https://www.youtube.com/watch?v=xWPf3yaUUbI",
     difficulty: 1,
-    comment: ""
+    comment: "テンポもゆっくりで単音も出てこないのでおいしくるの中では1番初心者向けかも…？"
   },
   {
     album: "eyes",
@@ -185,7 +185,7 @@ const songs = [
     date: "2026-10-12",
     youtube: "https://www.youtube.com/watch?v=K-BtTfZWeeY",
     difficulty: 3,
-    comment: ""
+    comment: "気付かない間に転調したり戻ったりコードを引用したりしていて伏線回収のようなガチ芸術曲…"
   },
   {
     album: "eyes",
@@ -193,7 +193,7 @@ const songs = [
     date: "2026-08-15",
     youtube: "https://www.youtube.com/watch?v=2e_2nqk4s28",
     difficulty: 2,
-    comment: ""
+    comment: "バレーコードさえ弾ければだいぶ易しめ曲です"
   },
   {
     album: "eyes",
@@ -201,7 +201,7 @@ const songs = [
     date: "2026-07-04",
     youtube: "https://www.youtube.com/watch?v=GodvwrHsJy4",
     difficulty: 1,
-    comment: ""
+    comment: "簡単だけどカッケェ曲なので初心者の方はイントロだけでも弾いてみると楽しくなれます"
   },
   {
     album: "eyes",
@@ -209,7 +209,7 @@ const songs = [
     date: "2026-10-07",
     youtube: "https://www.youtube.com/watch?v=MTnLWpRPdyo",
     difficulty: 3,
-    comment: ""
+    comment: "冒頭のアルペジオを本気でマスターすればもう概ね◎"
   },
   {
     album: "eyes",
@@ -217,7 +217,7 @@ const songs = [
     date: "2026-06-29",
     youtube: "https://www.youtube.com/watch?v=qd3uUFYYSRA",
     difficulty: 3,
-    comment: ""
+    comment: "ギターソロが相当難しいですが他は割とシンプルめ！"
   },
   {
     album: "answer",
