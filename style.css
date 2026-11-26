@@ -72,33 +72,6 @@ h1 {
   margin-bottom: 18px;
 }
 
-.filter-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-}
-
-.filter-button {
-  appearance: none;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 7px 14px;
-  cursor: pointer;
-}
-
-.filter-button:hover {
-  border-color: #bcbcbc;
-}
-
-.filter-button.is-active {
-  background: var(--text);
-  border-color: var(--text);
-  color: #fff;
-}
-
 .control-row {
   display: flex;
   gap: 12px;
@@ -244,11 +217,11 @@ h1 {
   display: none;
 }
 
-.album-song-table col:nth-child(1) { width: 34%; }
-.album-song-table col:nth-child(2) { width: 15%; }
-.album-song-table col:nth-child(3) { width: 18%; }
-.album-song-table col:nth-child(4) { width: 20%; }
-.album-song-table col:nth-child(5) { width: 13%; }
+.album-song-table col:nth-child(1) { width: 27%; }
+.album-song-table col:nth-child(2) { width: 16%; }
+.album-song-table col:nth-child(3) { width: 31%; }
+.album-song-table col:nth-child(4) { width: 15%; }
+.album-song-table col:nth-child(5) { width: 11%; }
 
 .flat-list {
   border: 1px solid var(--line);
@@ -261,11 +234,11 @@ h1 {
   width: 100%;
 }
 
-.flat-song-table col:nth-child(1) { width: 27%; }
-.flat-song-table col:nth-child(2) { width: 15%; }
-.flat-song-table col:nth-child(3) { width: 13%; }
-.flat-song-table col:nth-child(4) { width: 16%; }
-.flat-song-table col:nth-child(5) { width: 18%; }
+.flat-song-table col:nth-child(1) { width: 22%; }
+.flat-song-table col:nth-child(2) { width: 12%; }
+.flat-song-table col:nth-child(3) { width: 15%; }
+.flat-song-table col:nth-child(4) { width: 25%; }
+.flat-song-table col:nth-child(5) { width: 15%; }
 .flat-song-table col:nth-child(6) { width: 11%; }
 
 .album-cell {
@@ -274,28 +247,15 @@ h1 {
   overflow-wrap: anywhere;
 }
 
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 14px;
-  white-space: nowrap;
+.comment-cell {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
-.status::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.status-posted {
-  color: var(--posted);
-}
-
-.status-unposted {
-  color: var(--unposted);
+.song-title {
+  overflow-wrap: anywhere;
 }
 
 .date {
@@ -362,7 +322,13 @@ h1 {
   border: 0;
 }
 
-@media (max-width: 700px) {
+@media (min-width: 851px) {
+  .song-table th,
+  .song-table td { padding: 11px 12px; }
+  .date, .youtube-link { font-size: 14px; }
+}
+
+@media (max-width: 850px) {
   .page {
     width: min(100% - 20px, 1040px);
     padding-top: 28px;
@@ -425,7 +391,6 @@ h1 {
     min-width: 0;
   }
 
-  .status,
   .date,
   .youtube-link,
   .no-link,
@@ -436,24 +401,6 @@ h1 {
 
   .difficulty-stars {
     font-size: 13px;
-  }
-
-  .status-posted::before {
-    content: "✓";
-    width: auto;
-    height: auto;
-    border-radius: 0;
-    background: none;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .status-unposted::before {
-    display: none;
-  }
-
-  .status {
-    gap: 5px;
   }
 
   .album-header {
@@ -470,14 +417,21 @@ h1 {
 
   .album-song-table tr {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "title difficulty difficulty"
-      "status date video";
+      "title difficulty"
+      "comment comment"
+      "date video";
     column-gap: 10px;
-    row-gap: 6px;
+    row-gap: 5px;
     padding: 11px 12px;
     border-bottom: 1px solid var(--soft-line);
+  }
+
+  .album-song-table tr.no-comment {
+    grid-template-areas:
+      "title difficulty"
+      "date video";
   }
 
   .album-song-table tr:last-child {
@@ -492,8 +446,13 @@ h1 {
     overflow-wrap: anywhere;
   }
 
-  .album-song-table .status-cell {
-    grid-area: status;
+  .song-table .comment-cell {
+    grid-area: comment;
+    white-space: normal;
+  }
+
+  .song-table tr.no-comment .comment-cell {
+    display: none;
   }
 
   .album-song-table .date {
@@ -504,13 +463,6 @@ h1 {
   .album-song-table .difficulty {
     grid-area: difficulty;
     justify-self: end;
-  }
-
-  .album-song-table .difficulty::before {
-    content: "難しさ目安 ";
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 500;
   }
 
   .album-song-table .video-cell {
@@ -528,15 +480,23 @@ h1 {
 
   .flat-song-table tr {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "title title title"
-      "album difficulty difficulty"
-      "status date video";
+      "title title"
+      "album difficulty"
+      "comment comment"
+      "date video";
     column-gap: 10px;
     row-gap: 5px;
     padding: 12px;
     border-bottom: 1px solid var(--soft-line);
+  }
+
+  .flat-song-table tr.no-comment {
+    grid-template-areas:
+      "title title"
+      "album difficulty"
+      "date video";
   }
 
   .flat-song-table tr:last-child {
@@ -559,10 +519,6 @@ h1 {
     font-weight: 600;
   }
 
-  .flat-song-table .status-cell {
-    grid-area: status;
-  }
-
   .flat-song-table .date {
     grid-area: date;
     justify-self: start;
@@ -573,16 +529,8 @@ h1 {
     justify-self: end;
   }
 
-  .flat-song-table .difficulty::before {
-    content: "難しさ目安 ";
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 500;
-  }
-
   .flat-song-table .video-cell {
     grid-area: video;
     justify-self: end;
   }
-
-
+}

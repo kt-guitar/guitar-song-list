@@ -2,10 +2,8 @@ const songList = document.getElementById("songList");
 const summary = document.getElementById("summary");
 const searchInput = document.getElementById("searchInput");
 const sortSelect = document.getElementById("sortSelect");
-const filterButtons = document.querySelectorAll(".filter-button");
 const lastUpdated = document.getElementById("lastUpdated");
 
-let currentFilter = "all";
 const collapsedAlbums = new Set();
 
 sortSelect.innerHTML = `
@@ -55,19 +53,12 @@ function getVisibleSongs() {
   const keyword = normalize(searchInput.value.trim());
 
   const result = songs.filter((song) => {
-    const posted = isPosted(song);
-
-    const matchesFilter =
-      currentFilter === "all" ||
-      (currentFilter === "posted" && posted) ||
-      (currentFilter === "unposted" && !posted);
-
     const matchesSearch =
       keyword === "" ||
       normalize(song.title).includes(keyword) ||
       normalize(song.album).includes(keyword);
 
-    return matchesFilter && matchesSearch;
+    return matchesSearch;
   });
 
   const sortType = sortSelect.value;
@@ -150,13 +141,8 @@ function renderSummary() {
   }
 }
 
-function createStatusHtml(song) {
-  const posted = isPosted(song);
-  return `
-    <span class="status ${posted ? "status-posted" : "status-unposted"}">
-      ${posted ? "投稿済み" : "未投稿"}
-    </span>
-  `;
+function createCommentHtml(song) {
+  return escapeHtml((song.comment || "").trim());
 }
 
 function createDateHtml(song) {
@@ -179,12 +165,13 @@ function createYoutubeHtml(song) {
 
 function createAlbumSongRow(song) {
   const tr = document.createElement("tr");
+  tr.classList.toggle("no-comment", !(song.comment || "").trim());
 
   tr.innerHTML = `
     <td class="song-title">${escapeHtml(song.title)}</td>
-    <td class="status-cell">${createStatusHtml(song)}</td>
-    <td class="date">${createDateHtml(song)}</td>
     <td class="difficulty">${createDifficultyHtml(song)}</td>
+    <td class="comment-cell">${createCommentHtml(song)}</td>
+    <td class="date">${createDateHtml(song)}</td>
     <td class="video-cell">${createYoutubeHtml(song)}</td>
   `;
 
@@ -193,13 +180,14 @@ function createAlbumSongRow(song) {
 
 function createFlatSongRow(song) {
   const tr = document.createElement("tr");
+  tr.classList.toggle("no-comment", !(song.comment || "").trim());
 
   tr.innerHTML = `
     <td class="song-title">${escapeHtml(song.title)}</td>
     <td class="album-cell">${escapeHtml(song.album)}</td>
-    <td class="status-cell">${createStatusHtml(song)}</td>
-    <td class="date">${createDateHtml(song)}</td>
     <td class="difficulty">${createDifficultyHtml(song)}</td>
+    <td class="comment-cell">${createCommentHtml(song)}</td>
+    <td class="date">${createDateHtml(song)}</td>
     <td class="video-cell">${createYoutubeHtml(song)}</td>
   `;
 
@@ -208,7 +196,6 @@ function createFlatSongRow(song) {
 
 function createAlbumSection(album, albumSongs) {
   const allAlbumSongs = songs.filter((song) => song.album === album);
-  const postedCount = allAlbumSongs.filter(isPosted).length;
   const totalCount = allAlbumSongs.length;
 
   const section = document.createElement("section");
@@ -228,7 +215,7 @@ function createAlbumSection(album, albumSongs) {
       <span class="chevron" aria-hidden="true"></span>
       <span class="album-name">${escapeHtml(album)}</span>
     </span>
-    <span class="album-count">${postedCount} / ${totalCount}曲</span>
+    <span class="album-count">全${totalCount}曲</span>
   `;
 
   headerButton.addEventListener("click", () => {
@@ -251,9 +238,9 @@ function createAlbumSection(album, albumSongs) {
     <thead>
       <tr>
         <th>曲名</th>
-        <th>状態</th>
-        <th>投稿日</th>
         <th>難しさ目安</th>
+        <th>コメント</th>
+        <th>投稿日</th>
         <th>動画</th>
       </tr>
     </thead>
@@ -285,9 +272,9 @@ function createFlatList(visibleSongs) {
       <tr>
         <th>曲名</th>
         <th>アルバム</th>
-        <th>状態</th>
-        <th>投稿日</th>
         <th>難しさ目安</th>
+        <th>コメント</th>
+        <th>投稿日</th>
         <th>動画</th>
       </tr>
     </thead>
@@ -346,18 +333,6 @@ function escapeHtml(value) {
 function escapeAttribute(value) {
   return escapeHtml(value);
 }
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    currentFilter = button.dataset.filter;
-
-    filterButtons.forEach((item) => {
-      item.classList.toggle("is-active", item === button);
-    });
-
-    render();
-  });
-});
 
 searchInput.addEventListener("input", render);
 sortSelect.addEventListener("change", render);
