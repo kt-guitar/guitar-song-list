@@ -505,6 +505,6 @@ const songs = [
     date: "2026-08-04",
     youtube: "https://www.youtube.com/watch?v=E_wX3xtd83U",
     difficulty: 2,
-    comment: ""
+    comment: "シンプルなコードストローク、アルペジオ、ブリッジミュート等が良い感じに入っていて初心者の上達には持って来いの曲だと思います"
   },
 ];
