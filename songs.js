@@ -33,7 +33,7 @@ const songs = [
     date: "2026-08-26",
     youtube: "https://www.youtube.com/watch?v=gwusl_fBndI",
     difficulty: 3,
-    comment: "ガチおしゃれすぎコード、アウトロがやや難？"
+    comment: "イントロとアウトロのコードがガチおしゃれすぎる…カッティングとブラッシングのキレが大切です"
   },
   {
     album: "avenue",
@@ -49,7 +49,7 @@ const songs = [
     date: "2026-08-26",
     youtube: "https://www.youtube.com/watch?v=FLx1YBrcLC4",
     difficulty: 2,
-    comment: "ラスサビ前の間奏が壮大すぎて思わず涙…"
+    comment: "ラスサビ前の間奏で5,6弦の開放弦もずっとかき鳴らしてるの最高にアツすぎて思わず涙…"
   },
   {
     album: "avenue",
@@ -57,7 +57,7 @@ const songs = [
     date: "2026-07-20",
     youtube: "https://www.youtube.com/watch?v=zC35hDZK-88",
     difficulty: 2,
-    comment: "アウトロ以外はだいぶ易しめで初心者おすすめ！★1寄り"
+    comment: "パワーコードも多く、アウトロ以外はだいぶ易しめで初心者おすすめ！★1寄り"
   },
   {
     album: "bouquet",
@@ -89,7 +89,7 @@ const songs = [
     date: "2026-03-03",
     youtube: "https://www.youtube.com/watch?v=qgfZMBEfn8E",
     difficulty: 2,
-    comment: "かなり繰り返しが多いので慣れればだいぶ易しめ"
+    comment: "結構フレットの移動が忙しめですが繰り返しが多いのでAメロとサビの4コードさえマスターすればだいぶ易しめです"
   },
   {
     album: "bouquet",
@@ -105,7 +105,7 @@ const songs = [
     date: "2026-01-28",
     youtube: "https://www.youtube.com/watch?v=0Z4agSCK8u8",
     difficulty: 3,
-    comment: "激エモギターソロ大好きすぎる…"
+    comment: "激エモアルペジオと激エモギターソロ大好きすぎる…"
   },
   {
     album: "antique",
@@ -113,7 +113,7 @@ const songs = [
     date: "2026-04-12",
     youtube: "https://www.youtube.com/watch?v=XejFky8t7mQ",
     difficulty: 2,
-    comment: "速いけどコード自体はだいぶ易しめ！"
+    comment: "速いけどコード自体はだいぶ易しめ！テンポに慣れればかなり★1寄り"
   },
   {
     album: "antique",
@@ -121,7 +121,7 @@ const songs = [
     date: "2026-03-30",
     youtube: "https://www.youtube.com/watch?v=2Gy_mAhFDac",
     difficulty: 3,
-    comment: "間奏等のカントリー風ギターは想像よりも意外と簡単なので慣れ、大事◎"
+    comment: "イントロや間奏等のカントリー風ギターは想像よりも意外と簡単なので慣れって大事◎"
   },
   {
     album: "antique",
@@ -129,7 +129,7 @@ const songs = [
     date: "2026-09-22",
     youtube: "https://www.youtube.com/watch?v=MHWdm27ssJM",
     difficulty: 5,
-    comment: "イントロ等のリフがコードと単音が混ざって相当難関…"
+    comment: "イントロや間奏のリフがコードと単音が混ざってて相当難関…"
   },
   {
     album: "antique",
@@ -145,7 +145,7 @@ const songs = [
     date: "2026-08-30",
     youtube: "https://www.youtube.com/watch?v=eRneTzQPobk",
     difficulty: 3,
-    comment: "速さが最大の障壁、コード自体はそこまで難しくはないはず…！"
+    comment: "速さが最大の障壁ですがコード自体はそこまで難しくはないはず…！"
   },
   {
     album: "phenomenon",
@@ -161,7 +161,7 @@ const songs = [
     date: "2026-10-19",
     youtube: "https://youtu.be/aFyHcsMljd8",
     difficulty: 4,
-    comment: "丁寧さが相当求められる指弾き、アンプの音量カチ上げて良いので相当優しく弾いてあげましょう"
+    comment: "丁寧さが相当求められる指弾き、アンプの音量カチ上げて良いので相当優しいタッチで弾いてあげましょう"
   },
   {
     album: "phenomenon",
@@ -209,7 +209,7 @@ const songs = [
     date: "2026-10-07",
     youtube: "https://www.youtube.com/watch?v=MTnLWpRPdyo",
     difficulty: 3,
-    comment: "冒頭のアルペジオを本気でマスターすればもう概ね◎"
+    comment: "冒頭のアルペジオを本気でマスターすれば繰り返しが多いのでもう概ね◎"
   },
   {
     album: "eyes",
@@ -217,7 +217,7 @@ const songs = [
     date: "2026-06-29",
     youtube: "https://www.youtube.com/watch?v=qd3uUFYYSRA",
     difficulty: 3,
-    comment: "ギターソロが相当難しいですが他は割とシンプルめ！"
+    comment: "ギターソロが速くて相当難しいですが他は割とシンプルめ！"
   },
   {
     album: "answer",
@@ -233,7 +233,7 @@ const songs = [
     date: "2026-09-10",
     youtube: "https://www.youtube.com/watch?v=HPTyF93GFTk",
     difficulty: 2,
-    comment: "間奏～Cメロのアルペジオというかコードが癖アリでそこがかなり鬼門かと思います"
+    comment: "間奏～Cメロのアルペジオというかコードが癖アリでそこが最大の鬼門かと思います"
   },
   {
     album: "answer",
@@ -481,7 +481,7 @@ const songs = [
     date: "2026-05-01",
     youtube: "https://www.youtube.com/watch?v=Oq86Mle6ySw",
     difficulty: 2,
-    comment: "★2ですがギターソロは割と弾き応えのある難易度化と思います、ライブでやるときは2周ぐらいソロ回ししてしまいましょう"
+    comment: "★2ですがギターソロは割と弾き応えのある難易度かと思います、ライブでやるときは2周ぐらいソロ回ししてしまいましょう"
   },
   {
     album: "thirsty",
